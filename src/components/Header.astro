@@ -1,0 +1,45 @@
+---
+import { Image } from "astro:assets";
+import Logo from "../assets/Goose Logo_Black_Home@3x.png";
+import Hamburger from "../components/Hamburger.astro";
+---
+
+<header class="flex flex-row p-2">
+    <Image
+        class="xsm:hidden"
+        src={Logo}
+        alt="Goose Insurance Logo"
+        width={160}
+    />
+    <Image
+        class="hidden xsm:flex"
+        src={Logo}
+        alt="Goose Insurance Logo"
+        width={200}
+    />
+    <nav class="hidden xsm:flex w-full justify-between sm:justify-end">
+        <ul
+            class="flex w-full sm: justify-center items-center gap-4 sm:gap-8 md:gap-12
+            md:justify-end md:pr-14"
+        >
+            <li class="rounded p-2 bg-pink-200 text-xs sm:text-base">
+                <a class="whitespace-nowrap" href="/">Insurance ›</a>
+            </li>
+            <li class="rounded p-2 bg-pink-200 text-xs sm:text-base">
+                <a class="whitespace-nowrap" href="/">Company ›</a>
+            </li>
+            <li class="rounded p-2 bg-pink-200 text-xs sm:text-base">
+                <a class="whitespace-nowrap" href="/">Contact Us ›</a>
+            </li>
+        </ul>
+    </nav>
+    <nav class="flex xsm:hidden w-full pr-4">
+        <ul class="flex w-full justify-end items-center">
+            <li class="rounded p-2 bg-pink-200 text-xl">
+                <a class="" href="/">
+                    <Hamburger />
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
