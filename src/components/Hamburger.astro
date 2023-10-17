@@ -1,9 +1,39 @@
 ---
-
+import HamburgerDropdown from "../components/Hamburger.astro";
+let isMainMenuShowing = false;
 ---
 
-<div class="w-5 h-1 rounded bg-slate-600"></div>
-<div class="w-5 h-[2px] rounded bg-transparent"></div>
-<div class="w-5 h-1 rounded bg-slate-600"></div>
-<div class="w-5 h-[2px] rounded bg-transparent"></div>
-<div class="w-5 h-1 rounded bg-slate-600"></div>
+<div
+    id="hamburger-menu-button"
+    class="flex w-full justify-end items-center text-xl"
+>
+    {
+        isMainMenuShowing ? (
+            <div id="hamburger-dropdown" class="hidden border">
+                <ul>
+                    <p>Life</p>
+                </ul>
+                <ul>
+                    <p>Travel</p>
+                </ul>
+            </div>
+        ) : (
+            <div class="border p-2 rounded">
+                <div class="w-5 h-1 rounded bg-slate-600" />
+                <div class="w-5 h-[2px] rounded bg-transparent" />
+                <div class="w-5 h-1 rounded bg-slate-600" />
+                <div class="w-5 h-[2px] rounded bg-transparent" />
+                <div class="w-5 h-1 rounded bg-slate-600" />
+            </div>
+        )
+    }
+</div>
+
+<script>
+    const mainHamburgerMenu = document.getElementById("hamburger-menu-button");
+    const hamburgerDropdown = document.getElementById("hamburger-dropdown");
+    isMainMenuShowing = true;
+    mainHamburgerMenu?.addEventListener("click", () => {
+        console.log({ isMainMenuShowing });
+    });
+</script>
